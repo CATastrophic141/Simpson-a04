@@ -1,18 +1,29 @@
 @startuml
 'https://plantuml.com/class-diagram
 
+note as N1
+  "-- Is used to show the association,
+   or the use of each class by another"
+end note
+
+class Person{
+# firstName : String
+# lastName : String
+--
++ constructor Person (String firstName, String lastName)
+}
+Person -- NamesSort
+
+
 class NamesSort{
-- names : TreeMap <String, String>
-- numberOfNames : Integer
+# names : TreeMap <String, String>
 __
-- int CountNumberOfNames(String fileName)
-- void placeNamesInMap(String fileName)
-+ void scanNames(String fileName)
++ void placeNamesInMap(String fileName)
 + void printNames()
 }
+NamesSort -- Solution41
 
 class Solution41{
-fileName : String
-
+# main(String[] args)
 }
 @enduml
