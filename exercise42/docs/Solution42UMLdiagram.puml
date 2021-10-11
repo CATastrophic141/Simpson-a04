@@ -1,0 +1,30 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+note as N1
+  "-- Is used to show the association,
+   or the use of each class by another"
+end note
+
+class Person{
+# firstName : String
+# lastName : String
+# salary : String
+--
++ constructor Person (String firstName, String lastName, string salaryAmt)
+}
+Person -- EmployeeSort
+
+
+class EmployeeSort{
+# names : TreeMap <String, Employee>
+__
++ void placeEmployeesInMap(String fileName)
++ void printNames()
+}
+EmployeeSort -- Solution42
+
+class Solution42{
+# main(String[] args)
+}
+@enduml

@@ -25,7 +25,7 @@ class Person{
 
 class NameSort{
 
-    //Create a treemap for sorting and a variable to store the number of names
+    //Create a treemap for sorting
     protected TreeMap<String, Person> names = new TreeMap<>();
 
     public void placeNamesInMap(File fileName){
@@ -68,7 +68,9 @@ class NameSort{
         }
     }
 
+    //Get method for unit testing
     public SortedMap<String, Person> getTreeMap(){
+        //Return map
         return names;
     }
 }

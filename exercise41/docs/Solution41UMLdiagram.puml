@@ -16,7 +16,7 @@ Person -- NamesSort
 
 
 class NamesSort{
-# names : TreeMap <String, String>
+# names : TreeMap <String, Person>
 __
 + void placeNamesInMap(String fileName)
 + void printNames()
