@@ -7,6 +7,8 @@ package baseline;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.PrintStream;
 import java.util.*;
 
 class Person{
@@ -72,11 +74,14 @@ class NameSort{
 }
 
 public class Solution41 {
-    public static void main(String[] args){
+    public static void main(String[] args) throws FileNotFoundException {
         //Establish directory
         String fileDirectory = "./data/exercise41_input.txt";
-        //Open a file instance
+        //Open a file instance and stream output instance
         File file = new File(fileDirectory);
+        PrintStream fileOut = new PrintStream("./data/exercise41_output.txt");
+        //Set program to print to file
+        System.setOut(fileOut);
         //Create nameSort instance
         NameSort nameSort = new NameSort();
         //Call name scanning method
