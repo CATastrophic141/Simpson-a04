@@ -20,7 +20,8 @@ class EmployeeSort{
 # names : TreeMap <String, Employee>
 __
 + void placeEmployeesInMap(String fileName)
-+ void printNames()
++ void printEmployees()
++ public sortedMap<String, Employee> getTreeMap()
 }
 EmployeeSort -- Solution42
 

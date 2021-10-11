@@ -7,7 +7,6 @@ package baseline;
 
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.PrintStream;
 import java.util.Map;
 import java.util.Scanner;
 import java.util.SortedMap;
@@ -21,9 +20,9 @@ class Employee {
 
     //Constructor to set string values
     public Employee(String first, String last, String salaryAmt){
-        firstName;
-        lastName;
-        salary;
+        firstName = first;
+        lastName = last;
+        salary = salaryAmt;
     }
 }
 
@@ -34,19 +33,19 @@ class EmployeeSort{
 
     public void placeEmployeesInMap(File fileName){
         //In try statement to catch bad file paths
-        try (Scanner fileIn = new Scanner()){
-            String nameString;
-            String[] fullName;
+        try (Scanner fileIn = new Scanner(new FileInputStream(fileName))){
+            String employeeString;
+            String[] employeeData;
             //for the number of lines
             while(fileIn.hasNextLine()){
                 //Scan in first and last name as a line
-                nameString = fileIn.nextLine();
+                employeeString = fileIn.nextLine();
                 //Split names into parts by using split(",")
-                fullName = nameString.split();
+                employeeData = employeeString.split(",");
                 //Add first and last name to person instance
-                Employee p = new Employee();
+                Employee p = new Employee(employeeData[1],employeeData[0],employeeData[2]);
                 //Add first and last name into a map entry
-
+                employees.put(employeeData[0] + ", " + employeeData[1], p);
             }
         } catch (Exception defaultEx){
             //Print error message
@@ -54,22 +53,22 @@ class EmployeeSort{
         }
     }
 
-    public void printEmployee(){
+    public void printEmployees(){
         //Print table header
-        System.out.printf("%n");
+        System.out.printf(" Last name\t First name\t Salary%n");
         //Print tabular break
-        System.out.printf("%n");
+        System.out.printf("-----------------------------------------%n");
         //For the length of the treemap
-        for (){
+        for (Map.Entry<String, Employee> entry : employees.entrySet()){
             //Get the person instance from the treemap
                 //Repeated keys will be overridden
-            Employee temp;
+            Employee temp = entry.getValue();
             //Set data to string variables
-            String first;
-            String last;
-            String salaryAmt;
+            String first = temp.firstName;
+            String last = temp.lastName;
+            String salaryAmt = temp.salary;
             //Print the last name, first name, and salary
-            System.out.printf("%n");
+            System.out.printf("%10s%10s%10s%n", last, first, salaryAmt);
         }
     }
 
@@ -82,16 +81,13 @@ class EmployeeSort{
 
 public class Solution42 {
     public static void main(String[] args){
-        //Open a file instance and stream output instance
-        File file = new File();
-        PrintStream fileOut = new PrintStream();
-        //Set program to print to file
-        System.setOut(fileOut);
-        //Create nameSort instance
-
+        //Open a file instance
+        File file = new File("./data/exercise42_input.txt");
+        //Create EmployeeSort instance
+        EmployeeSort emp = new EmployeeSort();
         //Call name scanning method
-
+        emp.placeEmployeesInMap(file);
         //Call method to print the names
-
+        emp.printEmployees();
     }
 }

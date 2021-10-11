@@ -20,6 +20,7 @@ class NamesSort{
 __
 + void placeNamesInMap(String fileName)
 + void printNames()
++ void SortedMap<String, Person> getTreeMap()
 }
 NamesSort -- Solution41
 
