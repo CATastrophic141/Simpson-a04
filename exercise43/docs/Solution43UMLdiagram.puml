@@ -1,0 +1,22 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+class HTMLGenerator {
+ # String[] siteInfo
+ # boolean[] folders
+ # static final String START
+
+ + HTMLGenerator (String webName, String author, String javaChoice, String cssChoice)
+ - boolean checkForYes (String input)
+ # void generateSiteData()
+ # void writeToSite()
+ # void generateDirectories()
+}
+
+class Solution43{
++ public static void main(String[] args)
+}
+
+HTMLGenerator -- Solution43
+
+@enduml
