@@ -31,6 +31,9 @@ class EmployeeSort{
     //Create a treemap for sorting
     protected TreeMap<String, Employee> employees = new TreeMap<>();
 
+    /*This class only consists of two methods due to how the names are parsed and recorded.
+     A similar methodology was used from the previous example and as such a similar implementation is used
+     Splitting the methods which simply record as read and print as recorded into separate functions would be redundant*/
     public void placeEmployeesInMap(File fileName){
         //In try statement to catch bad file paths
         try (Scanner fileIn = new Scanner(new FileInputStream(fileName))){
