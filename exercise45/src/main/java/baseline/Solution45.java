@@ -7,6 +7,8 @@ package baseline;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.PrintStream;
 import java.util.Scanner;
 
 class StringReplacer {
@@ -15,55 +17,60 @@ class StringReplacer {
     void convertFileToString(File fileName) {
         StringBuilder writer = new StringBuilder();
         //In try statement to catch bad file pathing
-        try () {
+        try (Scanner fileIn = new Scanner(new FileInputStream(fileName))) {
             //While there are lines in the file
-            while () {
+            while (fileIn.hasNextLine()) {
                 //Add the line to the string
-                writer.append();
+                writer.append(fileIn.nextLine());
                 //Add new line character to the string if there is a next line
-                if () {
-                    writer.append();
+                if (fileIn.hasNextLine()) {
+                    writer.append("\n");
                 }
             }
         } catch (Exception defaultEx) {
             //Print error message
-            System.out.printf("%n");
+            System.out.printf("Could not read file%n");
         }
         //Covert string builder to actual string and then pass it to fileString
-        fileString;
+        fileString = writer.toString();
     }
 
     String replaceSubString(String fullString, String wordToReplace, String newWord) {
         //In the full string, replace the old substring with new substring
-        return fullString.replace();
+        return fullString.replace(wordToReplace, newWord);
     }
 
-    void writeToNewFile(String fullString) {
-        Scanner input = new Scanner(System.in);
-        //Prompt for name of new file
-        System.out.printf("%n");
+    void writeToNewFile(String newFileName, String fullString) throws FileNotFoundException {
         //Save user input to string
-        String outFileName;
+        String outFileName = newFileName + ".txt";
         //Open output file
-        File fileOut;
+        PrintStream fileOut = new PrintStream("./data/"+outFileName);
         //Set system print path
-        System.setOut();
+        System.setOut(fileOut);
         //Print string to print
-        System.out.printf("%n");
+        System.out.print(fullString);
     }
 }
 
 
 public class Solution45 {
-    public static void main(String[] args){
+    public static void main(String[] args) throws FileNotFoundException {
         StringReplacer replace = new StringReplacer();
+        Scanner input = new Scanner(System.in);
+        //Prompt for name of new file
+        System.out.printf("What do you want the produced file to be called?%n");
+        //Save name of new file
+        String newFileName = input.next();
         //Open input file
-        File fileIn;
+        File fileIn = new File("./data/exercise45_input.txt");
         //Call file conversion method
-        replace.convertFileToString();
+        replace.convertFileToString(fileIn);
+        //Set replaced/replacer words
+        String oldWord = "utilize";
+        String newWord = "use";
         //Call substring replacer method
-        replace.replaceSubString();
+        String alteredString = replace.replaceSubString(replace.fileString, oldWord, newWord);
         //Call printing method
-        replace.writeToNewFile();
+        replace.writeToNewFile(newFileName, alteredString);
     }
 }
