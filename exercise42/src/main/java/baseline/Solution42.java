@@ -52,7 +52,7 @@ class EmployeeSort{
             }
         } catch (Exception defaultEx){
             //Print error message
-            System.out.printf("%n");
+            System.out.printf("Unable to parse file%n");
         }
     }
 

@@ -1,0 +1,18 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+class StringReplacer {
+ # String fileString;
+
+ # void convertFileToString(File fileName)
+ # String replaceSubString(String fullString, String wordToReplace, String newWord)
+ # void writeToNewFile(String fullString)
+}
+
+class Solution45 {
+ + static void main(String[] args)
+}
+
+StringReplacer -- Solution45
+
+@enduml
