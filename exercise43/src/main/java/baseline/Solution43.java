@@ -27,6 +27,9 @@ class HTMLGenerator {
         folders[1] = checkForYes(cssChoice);
     }
 
+    /*All other methods are related regarding website generation.
+     Moving this method to its own class would be redundant
+     as it would be the only method in that class*/
     private boolean checkForYes (String input) {
         //If input is y or Y, return true
         return input.equals("y") || input.equals("Y");
@@ -48,7 +51,7 @@ class HTMLGenerator {
         //Make html file
         File html = new File (START+siteInfo[0]+"/index.html");
         //Print creation verification
-        if(website.mkdirs()) {
+        if(html.mkdirs()) {
             if (html.isDirectory()) {
                 //Print confirmation message
                 System.out.printf("Created %s%s/%s%n", START, siteInfo[0], siteInfo[1]);
@@ -70,7 +73,7 @@ class HTMLGenerator {
             //Write template text
             writer.write("\n<body><h1>\nThis is a template.\n</h1></body>\n</html>");
             //Print confirmation
-            System.out.printf("Created %s%s/index.html%n" ,START, siteInfo[0]);
+            System.out.printf("Created %s%s/index.html%n", START, siteInfo[0]);
         } catch (IOException e) {
             //Print error message
             System.out.printf("Unable to write to file%n");
