@@ -6,6 +6,7 @@ class WordFrequency {
 
  # void countWords(File fileName)
  # void printResults()
+ - private LinkedHashMap<String, Integer> convertToSortedMap(TreeMap<String, Integer> words)
 }
 
 class Solution46 {
