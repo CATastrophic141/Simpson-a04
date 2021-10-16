@@ -1,8 +1,8 @@
 
-<
-build.gradle,f\0\f07866736216be0ee2aba49e392191aeae700a35
 I
 data/exercise46_input.txt,4\e\4e2718794362dab8f52703c7f4e7c27422d9fc80
+<
+build.gradle,f\0\f07866736216be0ee2aba49e392191aeae700a35
 ?
 data/testIn.txt,8\1\81be11a69c32a8855525e0d662ae891effd64ef3
 N

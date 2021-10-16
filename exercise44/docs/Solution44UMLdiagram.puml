@@ -6,6 +6,7 @@ class ItemSearcher {
  - String foundItemName;
  - String[] foundItemDetails;
 
+ - static String readFileAsString(String file)
  # void parseJSONCatalogue()
  - boolean isInCatalogue(String itemName)
  # void findItem()
