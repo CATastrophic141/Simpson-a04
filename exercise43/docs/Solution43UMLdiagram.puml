@@ -10,7 +10,8 @@ class HTMLGenerator {
  - boolean checkForYes (String input)
  # void generateSiteData()
  # void writeToSite()
- # void generateDirectories()
+ - void generateDirectory(boolean isFolder, String folderName)
+ # void manageDirectoryGeneration()
 }
 
 class Solution43{

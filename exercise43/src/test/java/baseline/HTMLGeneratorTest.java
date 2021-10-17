@@ -22,7 +22,7 @@ class HTMLGeneratorTest {
         File testWeb = new File ("./data/website/TestWebsite");
         htmlG.generateSiteData();
         htmlG.writeToSite();
-        htmlG.generateDirectories();
+        htmlG.manageDirectoryGeneration();
 
         assertTrue(testWeb.isDirectory());
     }
@@ -39,7 +39,7 @@ class HTMLGeneratorTest {
         File testFile = new File ("./data/website/TestWebsite/index.html");
         htmlG.generateSiteData();
         htmlG.writeToSite();
-        htmlG.generateDirectories();
+        htmlG.manageDirectoryGeneration();
 
         assertTrue(testFile.isFile());
     }
@@ -56,7 +56,7 @@ class HTMLGeneratorTest {
         File testJS = new File ("./data/website/TestWebsite/js");
         htmlG.generateSiteData();
         htmlG.writeToSite();
-        htmlG.generateDirectories();
+        htmlG.manageDirectoryGeneration();
 
         assertTrue(testJS.isDirectory());
     }
@@ -73,7 +73,7 @@ class HTMLGeneratorTest {
         File testCSS = new File ("./data/website/TestWebsite/css");
         htmlG.generateSiteData();
         htmlG.writeToSite();
-        htmlG.generateDirectories();
+        htmlG.manageDirectoryGeneration();
 
         assertFalse(testCSS.isDirectory());
     }

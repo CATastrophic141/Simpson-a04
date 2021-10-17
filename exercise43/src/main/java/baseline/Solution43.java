@@ -48,18 +48,6 @@ class HTMLGenerator {
                 System.out.printf("Unable to create directory%n");
             }
         }
-        //Make html file
-        File html = new File (START+siteInfo[0]+"/index.html");
-        //Print creation verification
-        if(html.mkdirs()) {
-            if (html.isDirectory()) {
-                //Print confirmation message
-                System.out.printf("Created %s%s/%s%n", START, siteInfo[0], siteInfo[1]);
-            } else {
-                //Print error message
-                System.out.printf("Unable to create directory%n");
-            }
-        }
     }
 
     void writeToSite() {
@@ -80,23 +68,23 @@ class HTMLGenerator {
         }
     }
 
-    void generateDirectories() {
-        //If user chose to make java directory, create new directory
-        if(folders[0]){
-            File java = new File (START+siteInfo[0]+"/js/");
+    private void generateDirectory(boolean isFolder, String folderName) {
+        String folderDirectoryAsset = "/" + folderName + "/";
+        //If user chose to make a directory, create new directory
+        if(isFolder){
+            File java = new File (START+siteInfo[0]+folderDirectoryAsset);
             //Print creation verification
             if (java.mkdirs()){
-                System.out.printf("Created %s%s/js/%n" ,START, siteInfo[0]);
+                System.out.printf("Created %s%s%s%n" ,START, siteInfo[0], folderDirectoryAsset);
             }
         }
+    }
+
+    void manageDirectoryGeneration() {
+        //If user chose to make java directory, create new directory
+        generateDirectory(folders[0], "js");
         //If user chose to make css directory, create new directory
-        if(folders[1]){
-            File css = new File (START+siteInfo[0]+"/css/%n");
-            //Print creation verification
-            if (css.mkdirs()) {
-                System.out.printf("Created %s%s/css/", START, siteInfo[0]);
-            }
-        }
+        generateDirectory(folders[1], "css");
     }
 
 }
@@ -125,6 +113,6 @@ public class Solution43 {
         //Call html writing method
         htmlG.writeToSite();
         //Call directory generation method
-        htmlG.generateDirectories();
+        htmlG.manageDirectoryGeneration();
     }
 }
